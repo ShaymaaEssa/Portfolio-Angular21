@@ -5,7 +5,25 @@
 @plugin "flowbite/plugin";
 @source "../node_modules/flowbite";
 
-html {
-  scroll-behavior: smooth;
+
+:root {
+  --bg: #0d0d0f;
+  --bg-secondary: #141416;
+  --text: #f2f2f2;
+  --text-muted: #b3b3b3;
+  --accent: #4f7cff; /* blue accent */
 }
+
+* {
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+
+html, body {
+  scroll-behavior: smooth;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+}
+
 

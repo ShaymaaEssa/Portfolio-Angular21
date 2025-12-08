@@ -1,1 +1,15 @@
-<p>header works!</p>
+<header class="fixed top-0 left-0 w-full bg-[#0f0f11]/70 backdrop-blur-lg border-b border-white/10 z-50">
+  <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+
+    <h1 class="text-xl font-bold text-white">Shaymaa.dev</h1>
+
+    <ul class="hidden md:flex gap-8 text-[var(--text-muted)]">
+      <li><a routerLink="/" class="hover:text-[var(--accent)] transition">Home</a></li>
+      <li><a routerLink="/about" class="hover:text-[var(--accent)] transition">About</a></li>
+      <li><a routerLink="/skills" class="hover:text-[var(--accent)] transition">Skills</a></li>
+      <li><a routerLink="/projects" class="hover:text-[var(--accent)] transition">Projects</a></li>
+      <li><a routerLink="/contact" class="hover:text-[var(--accent)] transition">Contact</a></li>
+    </ul>
+
+  </nav>
+</header>
