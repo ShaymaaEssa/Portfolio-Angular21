@@ -6,6 +6,7 @@
 @source "../node_modules/flowbite";
 
 
+
 :root {
   --bg: #0f1724; /* light by default? use light palette if you want default light */
   --surface: #ffffff;
@@ -58,9 +59,30 @@ html, body {
 }
 
 body {
+   @apply bg-dark text-light font-sans; // Applies Tailwind classes
   background: var(--bg);
   color: var(--text-primary);
 }
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;  // Width of scrollbar
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-dark; // Track color
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary rounded-full; // Thumb color with rounded corners
+  // bg-primary = background-color: #0ea5e9
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary-dark; // Darker blue on hover
+}
+
+
 .btn-primary {
   background: var(--accent);
   color: white;
