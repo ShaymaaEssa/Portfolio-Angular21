@@ -7,11 +7,42 @@
 
 
 :root {
-  --bg: #0d0d0f;
-  --bg-secondary: #141416;
-  --text: #f2f2f2;
-  --text-muted: #b3b3b3;
-  --accent: #4f7cff; /* blue accent */
+  --bg: #0f1724; /* light by default? use light palette if you want default light */
+  --surface: #ffffff;
+  --text-primary: #0f1724;
+  --muted: #6b7280;
+  --accent: #7c3aed; /* primary */
+  --accent-2: #06b6d4;
+}
+
+/* dark theme variables */
+.dark {
+  --bg: #020617;
+  --surface: #071026;
+  --text-primary: #e6eef8;
+  --muted: #94a3b8;
+  --accent: #8b5cf6;
+  --accent-2: #06b6d4;
+}
+
+/* styles.css or global.scss */
+.primary {
+  background-color: #7c3aed;
+  color: white;
+}
+
+.primary-dark {
+  background-color: #6d28d9;
+  color: white;
+}
+
+.accent {
+  color: #06b6d4;
+}
+
+.surface {
+  background-color: #0b1220;
+  color: white;
 }
 
 * {
@@ -24,6 +55,15 @@ html, body {
   background: var(--bg);
   color: var(--text);
   font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+}
+.btn-primary {
+  background: var(--accent);
+  color: white;
 }
 
 
