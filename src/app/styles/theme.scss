@@ -1,0 +1,45 @@
+// -------------- color palette ---------------
+
+:root {
+  /* Light theme */
+  --bg: #f8fafc;
+  --surface: #ffffff;
+
+  --text-primary: #0f172a;
+  --text-muted: #64748b;
+
+  --primary: #6366f1;
+  --secondary: #06b6d4;
+
+  --border: #e2e8f0;
+
+  --section-sm: 4rem;   // 64px
+  --section-lg: 6rem;   // 96px
+}
+
+.dark {
+  /* Dark theme */
+  --bg: #020617;
+  --surface: #071026;
+
+  --text-primary: #e5e7eb;
+  --text-muted: #94a3b8;
+
+  --primary: #818cf8;
+  --secondary: #22d3ee;
+
+  --border: #1e293b;
+}
+
+
+
+// -------------fonts -----------------
+:root {
+  --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Space Grotesk', 'Inter', sans-serif;
+
+  /* Font sizes */
+  --text-base: 16px;
+  --text-lg: 18px;
+  --text-xl: 20px;
+}

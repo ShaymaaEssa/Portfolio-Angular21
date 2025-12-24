@@ -5,45 +5,14 @@
 @plugin "flowbite/plugin";
 @source "../node_modules/flowbite";
 
+@import "app/styles/theme";
 
+@theme {
 
-:root {
-  --bg: #0f1724; /* light by default? use light palette if you want default light */
-  --surface: #ffffff;
-  --text-primary: #0f1724;
-  --muted: #6b7280;
-  --accent: #7c3aed; /* primary */
-  --accent-2: #06b6d4;
-}
+  --font-body : var(--font-body);
+  --font-heading : var(--font-heading);
 
-/* dark theme variables */
-.dark {
-  --bg: #020617;
-  --surface: #071026;
-  --text-primary: #e6eef8;
-  --muted: #94a3b8;
-  --accent: #8b5cf6;
-  --accent-2: #06b6d4;
-}
-
-/* styles.css or global.scss */
-.primary {
-  background-color: #7c3aed;
-  color: white;
-}
-
-.primary-dark {
-  background-color: #6d28d9;
-  color: white;
-}
-
-.accent {
-  color: #06b6d4;
-}
-
-.surface {
-  background-color: #0b1220;
-  color: white;
+   --container-max: 1200px;
 }
 
 * {
@@ -54,38 +23,33 @@
 html, body {
   scroll-behavior: smooth;
   background: var(--bg);
-  color: var(--text);
-  font-family: 'Inter', sans-serif;
-}
-
-body {
-   @apply bg-dark text-light font-sans; // Applies Tailwind classes
-  background: var(--bg);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
   color: var(--text-primary);
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 10px;  // Width of scrollbar
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--text-primary);
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
-::-webkit-scrollbar-track {
-  @apply bg-dark; // Track color
+.grid-default{
+  @apply grid gap-8 sm:grid-cols-2 lg:grid-cols-3;
 }
 
-::-webkit-scrollbar-thumb {
-  @apply bg-primary rounded-full; // Thumb color with rounded corners
-  // bg-primary = background-color: #0ea5e9
+.section-lg{
+  @apply py-[var(--section-lg)]
 }
 
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-primary-dark; // Darker blue on hover
+.section-sm{
+  @apply py-[var(--section-sm)]
 }
 
-
-.btn-primary {
-  background: var(--accent);
-  color: white;
+.container-default{
+  @apply mx-auto max-w-[var(--container-max)] px-4 md:px-8
 }
+
 
 
