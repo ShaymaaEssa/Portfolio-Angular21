@@ -17,7 +17,14 @@
       <a class="nav-link" href="#projects">Projects</a>
       <a class="nav-link" href="#contact">Contact</a>
 
-      <!-- Theme toggle later -->
+      <!-- Theme toggle -->
+       <button
+  (click)="toggleTheme()"
+  class="ml-4 p-2 rounded-md transition hover:bg-[var(--border)]"
+  aria-label="Toggle theme"
+>
+  <!-- {{ themeSaved === 'dark' ? '☀️' : '🌙' }} -->
+</button>
     </nav>
 
     <!-- Mobile toggle -->
