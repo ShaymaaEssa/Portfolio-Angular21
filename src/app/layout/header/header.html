@@ -1,15 +1,29 @@
-<header class="fixed top-0 left-0 w-full bg-[#0f0f11]/70 backdrop-blur-lg border-b border-white/10 z-50">
-  <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+<header
+  class="fixed top-0 left-0 w-full z-50 transition-colors duration-300"
+  [class.bg-[var(--surface)]]="scrolled"
+  [class.border-b]="scrolled"
+  [class.border-[var(--border)]]="scrolled"
+>
+  <div class="container-default h-16 flex items-center justify-between">
+    
+    <!-- Logo / Name -->
+    <a href="#home" class="font-heading text-lg">
+      YourName
+    </a>
 
-    <h1 class="text-xl font-bold text-white">Shaymaa.dev</h1>
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex items-center gap-6">
+      <a class="nav-link" href="#about">About</a>
+      <a class="nav-link" href="#projects">Projects</a>
+      <a class="nav-link" href="#contact">Contact</a>
 
-    <ul class="hidden md:flex gap-8 text-[var(--text-muted)]">
-      <li><a routerLink="/" class="hover:text-[var(--accent)] transition">Home</a></li>
-      <li><a routerLink="/about" class="hover:text-[var(--accent)] transition">About</a></li>
-      <li><a routerLink="/skills" class="hover:text-[var(--accent)] transition">Skills</a></li>
-      <li><a routerLink="/projects" class="hover:text-[var(--accent)] transition">Projects</a></li>
-      <li><a routerLink="/contact" class="hover:text-[var(--accent)] transition">Contact</a></li>
-    </ul>
+      <!-- Theme toggle later -->
+    </nav>
 
-  </nav>
+    <!-- Mobile toggle -->
+    <button class="md:hidden">
+      ☰
+    </button>
+
+  </div>
 </header>
