@@ -1,11 +1,13 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { APP_THEME, THEME_STORAGE_KEY } from '../../environment/theme';
 
 @Injectable({
   providedIn: 'root',
 })
 export class Theme {
-  private readonly STORAGE_KEY = 'theme';
+  // private readonly STORAGE_KEY = 'portfolio-theme';
+  private readonly platformId = Inject(PLATFORM_ID);
   // private isBrowser: boolean = false;
 
     constructor() {
@@ -13,19 +15,14 @@ export class Theme {
     this.loadTheme();
   }
 
-  //   getTheme(): 'dark' | 'light' {
-  //   if (!this.isBrowser) return 'dark';
-  //   return (localStorage.getItem('theme') as 'dark' | 'light') || 'dark';
-  // }
-
   loadTheme() {
-    if(!isPlatformBrowser(Inject(PLATFORM_ID))) return;
+    if(!isPlatformBrowser(this.platformId)) return;
     else {
-    const saved = localStorage.getItem(this.STORAGE_KEY);
+    const saved = localStorage.getItem(THEME_STORAGE_KEY);
 
-    if (saved === 'dark') {
+    if (saved === APP_THEME.dark) {
       this.enableDark();
-    } else if (saved === 'light') {
+    } else if (saved === APP_THEME.light) {
       this.disableDark();
     } else {
       // system preference
@@ -37,12 +34,12 @@ export class Theme {
 
   enableDark() {
     document.documentElement.classList.add('dark');
-    localStorage.setItem(this.STORAGE_KEY, 'dark');
+    localStorage.setItem(THEME_STORAGE_KEY, APP_THEME.dark);
   }
 
   disableDark() {
     document.documentElement.classList.remove('dark');
-    localStorage.setItem(this.STORAGE_KEY, 'light');
+    localStorage.setItem(THEME_STORAGE_KEY, APP_THEME.light);
   }
 
   toggleTheme() {
