@@ -3,6 +3,8 @@ import { Component, HostListener, inject, OnInit, PLATFORM_ID } from '@angular/c
 import { Theme } from '../../core/services/theme/theme';
 import { isPlatformBrowser } from '@angular/common';
 import { APP_THEME, THEME_STORAGE_KEY } from '../../core/environment/theme';
+import { FlowbiteService } from '../../core/services/flowbite/flowbite';
+import { initFlowbite } from 'flowbite';
 
 @Component({
   selector: 'app-header',
@@ -10,8 +12,8 @@ import { APP_THEME, THEME_STORAGE_KEY } from '../../core/environment/theme';
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
-export class Header implements OnInit{
- 
+export class Header implements OnInit {
+
 
   themeSaved: "dark" | "light" = "dark";
   scrolled = false;
@@ -20,7 +22,15 @@ export class Header implements OnInit{
   private readonly platformId = inject(PLATFORM_ID);
   private readonly themeService = inject(Theme);
 
-   ngOnInit(): void {
+  constructor(private flowbiteService: FlowbiteService) { }
+
+
+
+  ngOnInit(): void {
+    this.flowbiteService.loadFlowbite((flowbite) => {
+      initFlowbite();
+    });
+
     this.getTheme();
   }
 
@@ -29,34 +39,34 @@ export class Header implements OnInit{
     this.scrolled = window.scrollY > 20;
   }
 
-  getTheme(){
-    if(isPlatformBrowser(this.platformId)) {
-      
+  getTheme() {
+    if (isPlatformBrowser(this.platformId)) {
+
       this.themeSaved = localStorage.getItem(THEME_STORAGE_KEY) === 'dark' ? 'dark' : 'light';
       console.log(this.themeSaved);
       console.log('browser');
       return;
-    } 
+    }
   }
 
-  toggleTheme(){
+  toggleTheme() {
     this.themeService.toggleTheme();
     this.getTheme();
-    
+
   }
 
 
-  openMenu(){
+  openMenu() {
     this.isMenuOpen = true;
     document.body.style.overflow = 'hidden'; // lock scroll
   }
 
-  closeMenu(){
+  closeMenu() {
     this.isMenuOpen = false;
-     document.body.style.overflow = ''; 
+    document.body.style.overflow = '';
   }
 
-  toggleMenu(){
+  toggleMenu() {
     this.isMenuOpen ? this.closeMenu() : this.openMenu();
   }
 
